@@ -1,5 +1,60 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+:root {
+  --main-bg-color: #F6F6F6;
+  --main-font-color: #1C1427;
+  --light-font-color: #E0E0E0;
+  --logo-color: #FF6363;
+  --main-font: 'Lato', sans-serif;
+  --logo-font: 'Shadows Into Light', cursive;
+  --footer-color: #7900FF;
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: var(--main-font);
+  background-color: var(--main-bg-color);
+  color: var(--main-font-color);
+}
+
+.logo {
+  color: var(--logo-color);
+  font-size: 1.5rem;
+  font-family: var(--logo-font);
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: var(--main-font-color);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+footer {
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--footer-color);
+  color: var(--light-font-color);
+  padding: 10px;
 }
