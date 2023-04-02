@@ -1,9 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { PRODUCTS_URL } from '../../app/api'
-import type { Product } from './products.slice'
+import type { ErrorInterface, Product } from './products.slice'
 
-export const getProducts = createAsyncThunk('products/getProducts', async () => {
+export const getProducts = createAsyncThunk<Product[], Product, { rejectValue: ErrorInterface }>
+('products/getProducts', async (_, thunkAPI) => {
+  const { rejectWithValue } = thunkAPI
   try {
     const { data: { products } } = await axios.get(PRODUCTS_URL)
 
@@ -23,8 +25,12 @@ export const getProducts = createAsyncThunk('products/getProducts', async () => 
     return result
   }
   catch (error) {
-    // TODO: set an error handler
-    // eslint-disable-next-line no-console
-    console.log(error)
+    if (axios.isAxiosError(error)) {
+      const { message, response } = error
+
+      return rejectWithValue({ status: response?.status ?? 500, message })
+    }
+
+    return rejectWithValue(({ message: 'Something went wrong...' }))
   }
 })

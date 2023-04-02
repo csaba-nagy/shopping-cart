@@ -3,9 +3,18 @@ import { useAppSelector } from '../../app/hooks'
 import ProductPanel from './ProductPanel'
 
 function ProductList() {
-  const { products, isLoading } = useAppSelector(state => state.products)
+  const { products, isLoading, error } = useAppSelector(state => state.products)
 
   const setContent = () => {
+    if (error) {
+      return (
+        <div className='error-container'>
+          <p className='error-status'>{error.status}</p>
+          <p className='error-message'>{ error.message }</p>
+        </div>
+      )
+    }
+
     if (isLoading) {
       return (
         <div>

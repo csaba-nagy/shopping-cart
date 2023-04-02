@@ -11,6 +11,7 @@
   --secondary-color: #32FF6A;
   --main-color: #7900FF;
   --border-radius: 5px;
+  --error-color: #E90064;
 }
 
 * {
@@ -90,6 +91,20 @@ body {
 
 .read-more {
   background-color: var(--main-bg-color);
+}
+
+.error-container {
+  text-align: center;
+  padding: 50px;
+}
+
+.error-status {
+  font-size: 3.5rem;
+  color: var(--error-color);
+}
+
+.error-message {
+  font-size: 1rem;
 }
 
 header {

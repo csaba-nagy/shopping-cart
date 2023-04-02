@@ -14,11 +14,18 @@ export interface Product {
 interface ProductsState {
   products: Product[]
   isLoading: boolean
+  error?: ErrorInterface
+}
+
+export interface ErrorInterface {
+  status?: number
+  message: string
 }
 
 const initialState: ProductsState = {
   products: [],
   isLoading: true,
+  error: undefined,
 }
 
 const productsSlice = createSlice({
@@ -34,8 +41,9 @@ const productsSlice = createSlice({
         state.isLoading = false
         state.products = payload
       })
-      .addCase(getProducts.rejected, (state) => {
+      .addCase(getProducts.rejected, (state, { payload }) => {
         state.isLoading = false
+        state.error = payload
       })
   },
 })
