@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
+import type { RootState } from '../../app/store'
+import { getProducts } from './products.thunks'
 
-interface Product {
+export interface Product {
   id: string
-  name: string
+  title: string
   price: number
   description: string
-  img: string
+  thumbnail: string
+  images: string
 }
 
 interface ProductsState {
@@ -22,6 +25,23 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {},
+  extraReducers(builder) {
+    builder
+      .addCase(getProducts.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getProducts.fulfilled, (state, { payload }) => {
+        state.isLoading = false
+        state.products = payload
+      })
+      .addCase(getProducts.rejected, (state) => {
+        state.isLoading = false
+      })
+  },
 })
+
+export function selectProducts(state: RootState) {
+  return state.products
+}
 
 export default productsSlice.reducer
