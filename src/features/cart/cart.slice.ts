@@ -1,19 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
-interface CartState {
-  cartItems: CartItemType[]
-  amount: number
-  total: number
-  isLoading: boolean
-}
-
-export interface CartItemType {
-  id: string
-  title: string
-  amount: number
-  price: number
-  thumbnail: string
-}
+import type { ActionType, CartItemType, CartState, ToggleMethod } from './types'
 
 const initialState: CartState = {
   cartItems: [],
@@ -26,30 +12,33 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state, action: { payload: CartItemType }) => {
-      const cartItem = state.cartItems.find(item => item.id === action.payload.id)
+    addToCart: (state, { payload }: ActionType<CartItemType>) => {
+      const cartItem = state.cartItems.find(item => item.id === payload.id)
 
       if (cartItem) {
         cartItem.amount += 1
         return
       }
 
-      state.cartItems = [...state.cartItems, action.payload]
+      state.cartItems = [...state.cartItems, payload]
     },
     emptyCart: (state) => {
       state.cartItems = []
     },
-    toggleAmount: (state, action: { payload: { id: string; method: 'increase' | 'decrease' } }) => {
-      const cartItem = state.cartItems.find(item => item.id === action.payload.id)
+    toggleAmount: (state, { payload }: ActionType<{ id: string; method: ToggleMethod }>) => {
+      const cartItem = state.cartItems.find(item => item.id === payload.id)
 
-      if (cartItem && action.payload.method === 'increase')
+      if (!cartItem)
+        return
+
+      if (payload.method === 'increase')
         cartItem.amount += 1
 
-      if (cartItem && action.payload.method === 'decrease')
+      if (payload.method === 'decrease')
         cartItem.amount -= 1
     },
-    removeItemFromCart: (state, action) => {
-      state.cartItems = state.cartItems.filter(item => item.id !== action.payload.id)
+    removeItemFromCart: (state, { payload }: ActionType<{ id: string }>) => {
+      state.cartItems = state.cartItems.filter(item => item.id !== payload.id)
     },
     calculateTotals: (state) => {
       let amount = 0

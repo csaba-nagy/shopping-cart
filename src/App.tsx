@@ -15,6 +15,7 @@ function App() {
   useEffect(() => {
     dispatch(calculateTotals())
   }, [cartItems])
+
   return (
     <main className="App">
       <Routes>

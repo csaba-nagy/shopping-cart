@@ -1,26 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '../../app/store'
 import { getProducts } from './products.thunks'
-
-export interface Product {
-  id: string
-  title: string
-  price: number
-  description: string
-  thumbnail: string
-  images: string
-}
-
-interface ProductsState {
-  products: Product[]
-  isLoading: boolean
-  error?: ErrorInterface
-}
-
-export interface ErrorInterface {
-  status?: number
-  message: string
-}
+import type { ProductsState } from './types'
 
 const initialState: ProductsState = {
   products: [],

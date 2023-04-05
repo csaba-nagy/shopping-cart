@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAppDispatch } from '../../app/store'
 import { addToCart } from '../../features/cart/cart.slice'
-import type { Product } from '../../features/products/products.slice'
+import type { Product } from '../../features/products/types'
 
 function ProductPanel({ id, title, price, thumbnail }: Product) {
   const dispatch = useAppDispatch()
