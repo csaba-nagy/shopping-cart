@@ -1,7 +1,10 @@
 import React from 'react'
+import { useAppDispatch } from '../../app/store'
+import { addToCart } from '../../features/cart/cart.slice'
 import type { Product } from '../../features/products/products.slice'
 
-function ProductPanel({ title, price, thumbnail }: Product) {
+function ProductPanel({ id, title, price, thumbnail }: Product) {
+  const dispatch = useAppDispatch()
   return (
     <article className='product-panel'>
       <img src={thumbnail} alt={title} />
@@ -10,7 +13,10 @@ function ProductPanel({ title, price, thumbnail }: Product) {
         <p className='price'>{price} $</p>
       </div>
       <div className='button-container'>
-        <button className='button add-cart'>Add to Cart</button>
+        <button
+          className='button add-cart'
+          onClick={() => dispatch(addToCart({ id, amount: 1, title, price, thumbnail }))}
+          >Add to Cart</button>
         <button className='button read-more'>Read more</button>
       </div>
     </article>
