@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+
 import { useAppDispatch } from '../../app/hooks'
 import { addToCart } from '../../features/cart/cart.slice'
 import type { Product } from '../../features/products/types'

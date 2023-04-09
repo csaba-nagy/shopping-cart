@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+
 import type { ActionType } from '../shared/types'
 import type { CartItemType, CartState, ChangeAmountPayload, RemoveItemPayload } from './types'
 
