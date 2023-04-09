@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAppDispatch } from '../../app/store'
+import { useAppDispatch } from '../../app/hooks'
 import { emptyCart } from '../../features/cart/cart.slice'
 
 function CartButtons() {

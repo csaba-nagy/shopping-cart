@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAppDispatch } from '../../app/store'
+import { useAppDispatch } from '../../app/hooks'
 import { removeItemFromCart, toggleAmount } from '../../features/cart/cart.slice'
 import type { CartItemType } from '../../features/cart/types'
 
