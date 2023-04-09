@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../../app/hooks'
-import { removeItemFromCart, toggleAmount } from '../../features/cart/cart.slice'
+import { removeItemFromCart, changeAmount } from '../../features/cart/cart.slice'
 import type { CartItemType } from '../../features/cart/types'
 
 function CartItem({ id, title, price, amount, thumbnail }: CartItemType) {
@@ -18,7 +18,7 @@ function CartItem({ id, title, price, amount, thumbnail }: CartItemType) {
         <button
           type="button"
           className="amount-button increase"
-          onClick={() => dispatch(toggleAmount({ id, method: 'increase' }))}
+          onClick={() => dispatch(changeAmount({ id, method: 'increase' }))}
           >+</button>
         <p className="cart-item-amount">{ amount }</p>
         <button
@@ -26,7 +26,7 @@ function CartItem({ id, title, price, amount, thumbnail }: CartItemType) {
           className="amount-button decrease"
           onClick={() => dispatch(amount === 1
             ? removeItemFromCart({ id })
-            : toggleAmount({ id, method: 'decrease' }))}
+            : changeAmount({ id, method: 'decrease' }))}
           >-</button>
       </div>
       </article>
