@@ -16,6 +16,23 @@
   --error-color: #E90064;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-bg-color: #222222;
+    --secondary-bg-color: #777777;
+    --main-font-color: #c2b1d6;
+    --secondary-font-color: #727272;
+    --light-font-color: #E0E0E0;
+    --logo-color: #df6868;
+    --main-font: 'Lato', sans-serif;
+    --logo-font: 'Shadows Into Light', cursive;
+    --secondary-color: #62a474;
+    --main-color: #c18aff;
+    --border-radius: 5px;
+    --error-color: #ca5085;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
