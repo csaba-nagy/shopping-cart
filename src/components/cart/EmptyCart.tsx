@@ -5,7 +5,7 @@ function EmptyCart() {
   return (
     <div>
       <h3>Your cart is empty!</h3>
-      <p>Please check our <Link to='/products'>products</Link></p>
+      <p>Please check our <Link to="/products">products</Link></p>
     </div>
   )
 }

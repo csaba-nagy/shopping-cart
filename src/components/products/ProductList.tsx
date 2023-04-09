@@ -8,9 +8,9 @@ function ProductList() {
   const setContent = () => {
     if (error) {
       return (
-        <div className='error-container'>
-          <p className='error-status'>{error.status}</p>
-          <p className='error-message'>{ error.message }</p>
+        <div className="error-container">
+          <p className="error-status">{error.status}</p>
+          <p className="error-message">{ error.message }</p>
         </div>
       )
     }
@@ -25,7 +25,7 @@ function ProductList() {
 
     return (
     <div className="product-list">
-      <div className='product-container'>
+      <div className="product-container">
         {products.map(product => (<ProductPanel {...product} key={product.id} />))}
       </div>
     </div>
