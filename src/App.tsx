@@ -7,6 +7,7 @@ import ProductList from './components/products/ProductList'
 import Welcome from './components/Welcome'
 import { selectCartItems } from './features/cart/cart.selectors'
 import { calculateTotals } from './features/cart/cart.slice'
+import { getProducts } from './features/products/products.thunks'
 import './styles/App.css'
 
 function App() {
@@ -16,6 +17,10 @@ function App() {
   useEffect(() => {
     dispatch(calculateTotals())
   }, [cartItems, dispatch])
+
+  useEffect(() => {
+    dispatch(getProducts())
+  }, [])
 
   return (
     <main className="App">
