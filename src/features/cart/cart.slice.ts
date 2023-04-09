@@ -25,9 +25,9 @@ const cartSlice = createSlice({
       state.cartItems = [...state.cartItems, payload]
     },
     emptyCart: (state) => {
-      state.cartItems = {
-        ...initialState.cartItems,
-      }
+      state.cartItems = initialState.cartItems
+      state.amount = initialState.amount
+      state.total = initialState.total
     },
     changeAmount: (state, { payload }: ActionType<ChangeAmountPayload>) => {
       if (!state.cartItems.length)
