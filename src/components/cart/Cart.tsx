@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAppSelector } from '../../app/hooks'
 import { selectCartItems, selectHasCartItem, selectTotal } from '../../features/cart/cart.selectors'
 import CartButtons from './CartButtons'

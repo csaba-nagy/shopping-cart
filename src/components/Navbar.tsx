@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '../app/hooks'
 import { selectAmount } from '../features/cart/cart.selectors'
