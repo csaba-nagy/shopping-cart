@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '../../app/store'
-import type { ActionType } from '../cart/types'
+import type { ActionType } from '../shared/types'
 import { getProducts } from './products.thunks'
 import type { ProductsPayload, ProductsStateWithError } from './types'
 
