@@ -25,7 +25,3 @@ export interface RemoveItemPayload {
 type ToggleMethod =
 | 'increase'
 | 'decrease'
-
-export interface ActionType<T> {
-  payload: T
-}
