@@ -13,7 +13,18 @@ export interface CartItemType {
   thumbnail: string
 }
 
-export type ToggleMethod = 'increase' | 'decrease'
+export interface ChangeAmountPayload {
+  id: string
+  method: ToggleMethod
+}
+
+export interface RemoveItemPayload {
+  id: string
+}
+
+type ToggleMethod =
+| 'increase'
+| 'decrease'
 
 export interface ActionType<T> {
   payload: T
