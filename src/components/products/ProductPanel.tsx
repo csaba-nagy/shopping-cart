@@ -1,9 +1,17 @@
+import { useCallback } from 'react'
 import { useAppDispatch } from '../../app/hooks'
 import { addToCart } from '../../features/cart/cart.slice'
 import type { Product } from '../../features/products/types'
 
-function ProductPanel({ id, title, price, thumbnail }: Product) {
+interface ProductPanelProps extends Product {}
+
+function ProductPanel({ id, title, price, thumbnail }: ProductPanelProps) {
   const dispatch = useAppDispatch()
+
+  const onClickAddToCart = useCallback(() => {
+    dispatch(addToCart({ id, amount: 1, title, price, thumbnail }))
+  }, [dispatch, id, title, price, thumbnail])
+
   return (
     <article className="product-panel">
       <img src={thumbnail} alt={title} />
@@ -14,7 +22,7 @@ function ProductPanel({ id, title, price, thumbnail }: Product) {
       <div className="button-container">
         <button
           className="button add-cart"
-          onClick={() => dispatch(addToCart({ id, amount: 1, title, price, thumbnail }))}
+          onClick={ onClickAddToCart }
           >Add to Cart</button>
         <button className="button read-more">Read more</button>
       </div>
