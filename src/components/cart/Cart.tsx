@@ -22,9 +22,9 @@ function Cart() {
     <section className="cart">
       <h2>Your Cart</h2>
       <div>
-      {cartItems.map(item => (<CartItem key={item.id} {...item} />))}
-      <p className="total">Total: { total.toFixed(2) } $</p>
-      <CartButtons />
+        {cartItems.map(item => (<CartItem key={item.id} {...item} />))}
+        <p className="total">Total: { total.toFixed(2) } $</p>
+        <CartButtons />
       </div>
     </section>
   )

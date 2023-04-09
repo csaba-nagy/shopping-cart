@@ -1,11 +1,12 @@
+import { useMemo } from 'react'
 import { useAppSelector } from '../../app/hooks'
 import ProductPanel from './ProductPanel'
 
 function ProductList() {
   const { products, isLoading, error } = useAppSelector(state => state.products)
 
-  const setContent = () => {
-    if (error) {
+  const setContent = useMemo(() => {
+    if (error.message) {
       return (
         <div className="error-container">
           <p className="error-status">{error.status}</p>
@@ -29,12 +30,12 @@ function ProductList() {
       </div>
     </div>
     )
-  }
+  }, [error, isLoading, products])
 
   return (
     <section>
       <h2>Products</h2>
-      {setContent()}
+      {setContent}
     </section>
   )
 }

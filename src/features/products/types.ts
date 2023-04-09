@@ -10,10 +10,17 @@ export interface Product {
 export interface ProductsState {
   products: Product[]
   isLoading: boolean
-  error?: ErrorInterface
+}
+
+export interface ProductsStateWithError extends ProductsState {
+  error: ErrorInterface
 }
 
 export interface ErrorInterface {
   status?: number
-  message: string
+  message: string | null
+}
+
+export interface ProductsPayload {
+  products: Product[]
 }

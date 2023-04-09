@@ -3,6 +3,7 @@ import { selectTotal } from '../features/cart/cart.selectors'
 
 function Footer() {
   const total = useAppSelector(selectTotal)
+
   return (
     <footer>
       <p>Total: { total.toFixed(2) } $</p>

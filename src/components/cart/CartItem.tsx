@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../../app/hooks'
-import { removeItemFromCart, changeAmount } from '../../features/cart/cart.slice'
+import { changeAmount, removeItemFromCart } from '../../features/cart/cart.slice'
 import type { CartItemType } from '../../features/cart/types'
 
 function CartItem({ id, title, price, amount, thumbnail }: CartItemType) {

@@ -1,18 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '../../app/store'
+import type { ActionType } from '../cart/types'
 import { getProducts } from './products.thunks'
-import type { ProductsState } from './types'
+import type { ProductsPayload, ProductsStateWithError } from './types'
 
-const initialState: ProductsState = {
+const initialState: ProductsStateWithError = {
   products: [],
   isLoading: true,
-  error: undefined,
+  error: {
+    message: null,
+  },
 }
 
 const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    setProducts: (state, action: ActionType<ProductsPayload>) => {
+      state.products = action.payload.products
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(getProducts.pending, (state) => {
@@ -24,7 +31,7 @@ const productsSlice = createSlice({
       })
       .addCase(getProducts.rejected, (state, { payload }) => {
         state.isLoading = false
-        state.error = payload
+        state.error = payload!
       })
   },
 })
@@ -32,5 +39,7 @@ const productsSlice = createSlice({
 export function selectProducts(state: RootState) {
   return state.products
 }
+
+export const { setProducts } = productsSlice.actions
 
 export default productsSlice.reducer
