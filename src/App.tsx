@@ -14,14 +14,14 @@ function App() {
 
   useEffect(() => {
     dispatch(calculateTotals())
-  }, [cartItems])
+  }, [cartItems, dispatch])
 
   return (
     <main className="App">
       <Routes>
-        <Route path='/' element={<Welcome />}/>
-        <Route path='/products' element={<ProductList />}/>
-        <Route path='/cart' element={<Cart />}/>
+        <Route path="/" element={<Welcome />}/>
+        <Route path="/products" element={<ProductList />}/>
+        <Route path="/cart" element={<Cart />}/>
       </Routes>
     </main>
   )
