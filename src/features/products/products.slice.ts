@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+
 import type { RootState } from '../../app/store'
 import type { ActionType } from '../shared/types'
 import { getProducts } from './products.thunks'

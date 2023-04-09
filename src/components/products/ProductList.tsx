@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+
 import { useAppSelector } from '../../app/hooks'
 import { selectError, selectIsLoading, selectProducts } from '../../features/products/products.selectors'
 import ProductPanel from './ProductPanel'

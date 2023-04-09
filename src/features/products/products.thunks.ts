@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+
 import { PRODUCTS_URL } from '../../app/api.constants'
 import type { ErrorInterface, Product, ProductsPayload } from './types'
 
