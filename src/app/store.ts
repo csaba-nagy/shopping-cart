@@ -1,5 +1,6 @@
 import type { Action } from '@reduxjs/toolkit'
 import { configureStore } from '@reduxjs/toolkit'
+
 import type { ThunkAction } from 'redux-thunk'
 
 import rootReducer from './rootReducer'

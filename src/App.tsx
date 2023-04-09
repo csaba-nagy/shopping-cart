@@ -8,6 +8,7 @@ import Welcome from './components/Welcome'
 import { selectCartItems } from './features/cart/cart.selectors'
 import { calculateTotal } from './features/cart/cart.slice'
 import { getProducts } from './features/products/products.thunks'
+
 import './styles/App.css'
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
   }, [cartItems, dispatch])
 
   useEffect(() => {
-    dispatch(getProducts())
+    return () => {
+      dispatch(getProducts())
+    }
   }, [])
 
   return (
