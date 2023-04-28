@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testing Welcome component > should render the component properly 1`] = `
+<div>
+  <div>
+    Welcome
+  </div>
+</div>
+`;
