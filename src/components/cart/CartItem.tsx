@@ -33,7 +33,7 @@ function CartItem({ id, title, price, amount, thumbnail }: CartItemType) {
           className="amount-button increase"
           onClick={ onClickIncrement }
           >+</button>
-        <p className="cart-item-amount">{ amount }</p>
+        <p className="cart-item-amount" role="amount">{ amount }</p>
         <button
           type="button"
           className="amount-button decrease"
