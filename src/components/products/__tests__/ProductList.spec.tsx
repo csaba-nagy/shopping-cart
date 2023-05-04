@@ -5,13 +5,13 @@ import { getProducts } from '../../../features/products/products.thunks'
 
 describe('ProductList', () => {
   it('should show the loading screen if products are not loaded', () => {
-    const { store, getByText, queryByText } = renderWithProviders(<ProductList />)
+    const { store, getByRole, queryByText } = renderWithProviders(<ProductList />)
 
     const { products } = store.getState()
 
     expect(products.isLoading).toEqual(true)
 
-    expect(getByText(/products/i)).toBeInTheDocument()
+    expect(getByRole('heading', { name: /products/i })).toBeInTheDocument()
     expect(queryByText(/loading/i)).toBeInTheDocument()
   })
 
