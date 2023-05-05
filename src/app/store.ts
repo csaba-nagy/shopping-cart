@@ -1,15 +1,22 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import type { Action } from '@reduxjs/toolkit'
+import type { Action, PreloadedState } from '@reduxjs/toolkit'
 import type { ThunkAction } from 'redux-thunk'
 
 import rootReducer from './rootReducer'
 
-const store = configureStore({
-  reducer: rootReducer,
-})
+export function setupStore(preloadedState?: PreloadedState<AppState>) {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState,
+  })
+}
+
+const store = setupStore()
 
 export type RootState = ReturnType<typeof store.getState>
+
+export type AppState = ReturnType<typeof rootReducer>
 
 export type AppDispatch = typeof store.dispatch
 

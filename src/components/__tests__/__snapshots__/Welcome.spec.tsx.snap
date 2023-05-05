@@ -1,0 +1,42 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testing Welcome component > should render the component properly 1`] = `
+<div>
+  <header>
+    <a
+      class="logo"
+      href="/"
+    >
+      Logo
+    </a>
+    <nav
+      class="navbar"
+    >
+      <a
+        class="navbar-link"
+        href="/products"
+      >
+        Products
+      </a>
+      <a
+        class="navbar-link"
+        href="/cart"
+      >
+        Cart(
+        0
+        )
+      </a>
+    </nav>
+  </header>
+  <div>
+    Welcome
+  </div>
+  <footer>
+    <p>
+      Total: 
+      0.00
+       $
+    </p>
+  </footer>
+</div>
+`;
